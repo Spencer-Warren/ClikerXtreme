@@ -1,4 +1,4 @@
-import { Item } from './item.js'
+import { Item } from './buttonClass.js'
 
 let lastTime
 function update(time) {

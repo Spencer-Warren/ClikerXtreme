@@ -1,4 +1,4 @@
-import {numDisplay} from './helper.js'
+import {numDisplay} from './numHelper.js'
 export class Item {
 
     constructor(name) {
