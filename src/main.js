@@ -1,4 +1,5 @@
 import { Item } from './buttonClass.js'
+import { upgradeButton } from './upgradeClass.js'
 
 let lastTime
 function update(time) {
@@ -22,4 +23,15 @@ var items = {};
 for(const name of itemNames){
     items[name] = new Item(name);
     document.getElementById(name).addEventListener("click", function() {items[name].count +=1});
+}
+btn1 = new upgradeButton("Rocks ", 100, " Miner ", 2)
+var upgradeNames = [btn1]
+for(const btn of upgradeNames){
+    document.getElementById(name).addEventListener("click", function(){
+        if(item.count >= btn.price){
+            btn.amount += 1
+            btn.priceMult 
+
+        }
+    })
 }
