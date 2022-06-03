@@ -4,10 +4,9 @@ body {
     margin: 0;
 }
 
-#content {
-    padding: 20px;
-    min-height: 100%;
-    margin: 0 auto -50px;
+.item-count {
+    padding: 10px;
+    display: inline;
 }
 
 .footer {
@@ -15,4 +14,10 @@ body {
     position: fixed;
     bottom: 0;
     left: 0;
+}
+
+#content {
+    padding: 20px;
+    min-height: 100%;
+    margin: 0 auto -50px;
 }
