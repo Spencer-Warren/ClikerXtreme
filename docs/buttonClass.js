@@ -31,8 +31,10 @@ export class Item {
 
     update() {
         // When value changes, change on page
+        Math.round(this.count)
         this.numDiv.innerHTML = numDisplay(this.count);
         return this; // allow some magic
+        
     }
     add(amount) {
         // Increase count and update on screen

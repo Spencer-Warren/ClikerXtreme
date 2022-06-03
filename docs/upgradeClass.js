@@ -10,7 +10,7 @@ export class upgradeButton {
         // init amount to 0
         this.amount = 0;
 
-        // idk what these are
+        // Multiplies the price
         this.priceMult = mult *= price;
 
         // Div of num of item and name
