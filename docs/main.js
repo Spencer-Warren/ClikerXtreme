@@ -1,7 +1,7 @@
 import { Item } from './buttonClass.js'
 import { upgradeButton } from './upgradeClass.js'
 import { autoSave } from './save-load.js';
-import { autoReset } from './save-load.js';
+import { autoLoad } from './save-load.js';
 
 // init items
 var itemNames = ['Rock', "Stick", "Sand"];
@@ -13,11 +13,11 @@ for (const name of itemNames) {
 
 // init upgrades
 var upgrades = [
-    new upgradeButton("Rock", 10, "Miner", 1.2),
-    new upgradeButton("Stick", 10, "Gatherer", 1.5),
-    new upgradeButton("Sand", 10, "Shoveler", 1.7)
-]
-//add event listener
+        new upgradeButton("Rock", 10, "Miner", 1.2),
+        new upgradeButton("Stick", 10, "Gatherer", 1.5),
+        new upgradeButton("Sand", 10, "Shoveler", 1.7)
+    ]
+    //add event listener
 for (const btn of upgrades) {
     document.getElementById(btn.name + " Upgrade")
         .addEventListener("click", function() {
@@ -33,10 +33,9 @@ for (const btn of upgrades) {
             }
         })
 }
-
-AS = new autoSave(idSave)
-document.getElementById(this.ID).addEventListener("click", function(){
-   var storage = localStorage.setItem('ITEMS', this.items);
-   console.log(storage)
+var idSave = 0;
+var AS = new autoSave(idSave);
+document.getElementById(this.ID).addEventListener("click", function() {
+    var storage = localStorage.setItem('ITEMS', this.items);
+    console.log(storage);
 })
-
