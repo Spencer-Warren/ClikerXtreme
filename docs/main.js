@@ -1,5 +1,7 @@
 import { Item } from './buttonClass.js'
 import { upgradeButton } from './upgradeClass.js'
+import { autoSave } from './save-load.js';
+import { autoReset } from './save-load.js';
 
 // init items
 var itemNames = ['Rock', "Stick", "Sand"];
@@ -31,3 +33,10 @@ for (const btn of upgrades) {
             }
         })
 }
+
+AS = new autoSave(idSave)
+document.getElementById(this.ID).addEventListener("click", function(){
+   var storage = localStorage.setItem('ITEMS', this.items);
+   console.log(storage)
+})
+
