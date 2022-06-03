@@ -1,4 +1,4 @@
-import {numDisplay} from './numHelper.js'
+import { numDisplay } from './numHelper.js'
 export class Item {
 
     constructor(name) {
@@ -10,11 +10,11 @@ export class Item {
         this.button = document.createElement("button");
         this.button.id = this.name;
         this.button.innerHTML = "More " + this.name + "s";
-        document.body.appendChild(this.div);
-        document.body.appendChild(this.button);
+        document.getElementById("content").appendChild(this.div);
+        document.getElementById("content").appendChild(this.button);
     }
 
-    update() { 
+    update() {
         this.div.innerHTML = this.name + ": " + numDisplay(this.count);
     }
 }
