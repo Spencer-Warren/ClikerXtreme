@@ -1,8 +1,7 @@
-import {numDisplay} from './numHelper.js'
+import { numDisplay } from './numHelper.js'
 
-export class upgradeButton{
+export class upgradeButton {
     constructor(name, price, typeOfThing, mult) {
-        console.log(name);
         this.name = name;
         this.mult = mult
         this.price = price
@@ -10,16 +9,17 @@ export class upgradeButton{
         this.priceMult = mult *= price
         this.typeOfThing = typeOfThing
         this.div = document.createElement("div");
-        this.div.className = name;
+        this.div.className = name + " Upgrade";
         this.button = document.createElement("button");
-        this.button.id = this.name;
-        this.button.innerHTML = "Buy 1 " + this.name + this.typeOfThing + " - " + this.priceMult + " " +  this.name
-        document.body.appendChild(this.div);
-        document.body.appendChild(this.button);
+        this.button.id = this.name + " Upgrade";
+        this.button.innerHTML = `Buy 1 ${this.name} ${this.typeOfThing} - ${this.price}  ${this.name}`
+        document.getElementById("content").appendChild(this.div);
+        document.getElementById("content").appendChild(this.button);
+        this.update();
     }
 
-    update() { 
-        this.div.innerHTML = this.name + this.typeOfThing + " - " + this.priceMult + " " + this.name
+    update() {
+        this.div.innerHTML = `${this.amount} - ${ this.name } ${ this.typeOfThing }`
     }
 
 

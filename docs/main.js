@@ -2,40 +2,37 @@ import { Item } from './buttonClass.js'
 import { upgradeButton } from './upgradeClass.js'
 
 let lastTime
-function update(time) {
-    if (lastTime == null){
-        lastTime = time
-        window.requestAnimationFrame(update)    
-        return
-    }
-    const delta = time - lastTime
-    
-    for(const [key, value] of Object.entries(items)) value.update()
 
-    lastTime = time
-    
-    window.requestAnimationFrame(update)    
-}
 
-window.requestAnimationFrame(update)
 // init rocks
 var itemNames = ['Rock', "Stick", "Sand"];
 var items = {};
-for(const name of itemNames){
+for (const name of itemNames) {
     items[name] = new Item(name);
-    document.getElementById(name).addEventListener("click", function() {items[name].count +=1});
+    document.getElementById(name).addEventListener("click", function() { items[name].add(1).update() });
 }
-btn1 = new upgradeButton("Rocks ", 10, " Miner ", 2)
-btn2 = new upgradeButton("Sticks ", 100, " Gatherer ", 2)
-btn3 = new upgradeButton("Sand", 1000, "Shovelers", 2)
-var upgradeNames = []
+var btn1 = new upgradeButton("Rock", 10, "Miner", 2)
+var btn2 = new upgradeButton("Stick", 100, "Gatherer", 2)
+var btn3 = new upgradeButton("Sand", 1000, "Shoveler", 2)
+var upgradeNames = [btn1, btn2]
 var upgradeDict = {}
-for(const btn of upgradeNames){
-    document.getElementById(btn).addEventListener("click", function(){
-        if(Item.count >= btn.price){
+for (const btn of upgradeNames) {
+    document.getElementById(btn.name + " Upgrade").addEventListener("click", function() {
+        var item = items[btn.name]
+        if (item.count >= btn.price) {
             btn.amount += 1
-            btn.priceMult
-            btn.price -= Item.count
+            item.count -= btn.price
+            btn.update()
+            item.update()
         }
     })
 }
+
+//ignore
+// function frame() {
+
+//     for (const [key, value] of Object.entries(items)) value.update()
+//     setTimeout(frame, 1500);
+// }
+
+// frame()
