@@ -47,9 +47,10 @@ function save() {
 }
 
 function load() {
-    for (const name of itemNames) {
-        var amount = JSON.parse(localStorage.getItem(name))
-        items[name].set(amount);
-        console.log(name + " " + JSON.parse(localStorage.getItem(name)));
+    if (localStorage.length < 1) {
+        for (const name of itemNames) {
+            var amount = JSON.parse(localStorage.getItem(name))
+            items[name].set(amount);
+        }
     }
 }
