@@ -26,21 +26,20 @@ for (const btn of upgrades) {
             if (item.count >= btn.price) {
                 btn.amount += 1
                 item.count -= btn.price
-                btn.priceMult
-                Math.round(btn.priceMult)
                 btn.update()
                 item.update()
             }
         })
 }
+// init Saving
 var idSave = 0;
 var AS = new autoSave(idSave);
 document.getElementById(idSave).addEventListener("click", save);
-
+//loading
 var AL = new autoLoad(2);
 document.getElementById(2).addEventListener("click", load);
 
-
+//actually saving
 function save() {
     for (const name of itemNames) {
         items[name].save();
@@ -49,7 +48,7 @@ function save() {
         up.save();
     }
 }
-
+//load button
 function load() {
     for (const name of itemNames) {
         // if item doesnt exist in local storage ignore

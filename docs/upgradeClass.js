@@ -1,5 +1,5 @@
 import { numDisplay } from './numHelper.js'
-
+import { Item } from './buttonClass.js'
 export class upgradeButton {
     constructor(name, price, typeOfThing, mult, item) {
         // assign given
