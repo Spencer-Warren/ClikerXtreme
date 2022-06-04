@@ -39,6 +39,8 @@ document.getElementById(idSave).addEventListener("click", save);
 var AL = new autoLoad(2);
 document.getElementById(2).addEventListener("click", load);
 
+
+
 function save() {
     for (const name of itemNames) {
         localStorage.setItem(name, JSON.stringify(items[name].count));
