@@ -36,7 +36,8 @@ for (const btn of upgrades) {
 var idSave = 0;
 var AS = new autoSave(idSave);
 document.getElementById(idSave).addEventListener("click", function() {
-    localStorage.setItem('ITEMS', JSON.stringify(Rock.count), JSON.stringify(Stick.count), JSON.stringify(Sand.count))
-    console.log(JSON.parse(localStorage.getItem('ITEMS')));
-        
+    for (const name of itemNames) {
+        localStorage.setItem(name, JSON.stringify(items[name].count))
+        console.log(JSON.parse(localStorage.getItem(name)));
+    }
 })
