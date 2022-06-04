@@ -57,4 +57,4 @@ function load() {
     }
 }
 
-document.onload = load();
+document.addEventListener("DOMContentLoaded", load);
