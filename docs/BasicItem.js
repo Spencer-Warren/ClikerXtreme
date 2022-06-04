@@ -1,13 +1,12 @@
 import { numDisplay } from './numHelper.js'
 export class BasicItem {
-
     constructor(name) {
         this.count = 0;
         this.name = name;
 
         // Create outer div
-        this.nameDiv = document.createElement("div");
-        this.nameDiv.innerHTML = `${this.name} - `;
+        this.mainDiv = document.createElement("div");
+        this.mainDiv.innerHTML = `${this.name} - `;
 
         // init number div to display count
         this.numDiv = document.createElement("div");
@@ -20,9 +19,9 @@ export class BasicItem {
         this.button.className = 'item-button';
 
         // Add all the things
-        this.nameDiv.appendChild(this.numDiv);
-        this.nameDiv.appendChild(this.button);
-        document.getElementById("content").appendChild(this.nameDiv);
+        this.mainDiv.appendChild(this.numDiv);
+        this.mainDiv.appendChild(this.button);
+        document.getElementById("content").appendChild(this.mainDiv);
 
         // Display when all init
         this.update()

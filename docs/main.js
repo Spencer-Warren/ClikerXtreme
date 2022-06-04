@@ -13,21 +13,21 @@ for (const name of itemNames) {
 
 // init upgrades
 var upgrades = [
-        new Station("Rock Miner", 10, "Miner", 1.2, items['Rock']),
-        new Station("Stick", 10, "Gatherer", 1.5, items['Stick']),
-        new Station("Sand", 10, "Shoveler", 1.7, items['Sand'])
+        new Station("Rock Miner", 10, 1.2, items['Rock']),
+        new Station("Stick Gather", 10, 1.5, items['Stick']),
+        new Station("Sand Shoveler", 10, 1.7, items['Sand'])
 ]
 
 //add event listener
-for (const btn of upgrades) {
-    document.getElementById(btn.name + " Upgrade")
+for (const station of upgrades) {
+    document.getElementById(station.name+"-button")
         .addEventListener("click", function() {
-            var item = items[btn.name]
-            if (item.count >= btn.price) {
-                btn.amount += 1
-                item.count -= btn.price
-                btn.update()
-                item.update()
+            console.log(station.item.count)
+            if (station.item.count >= station.price) {
+                station.count += 1
+                station.item.count -= station.price
+                station.update()
+                station.item.update()
             }
         })
 }
