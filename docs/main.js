@@ -35,9 +35,11 @@ for (const btn of upgrades) {
 }
 var idSave = 0;
 var AS = new autoSave(idSave);
-document.getElementById(idSave).addEventListener("click", function() {
+document.getElementById(idSave).addEventListener("click", save);
+
+function save() {
     for (const name of itemNames) {
-        localStorage.setItem(name, JSON.stringify(items[name].count))
+        localStorage.setItem(name, JSON.stringify(items[name].count));
         console.log(JSON.parse(localStorage.getItem(name)));
     }
-})
+}

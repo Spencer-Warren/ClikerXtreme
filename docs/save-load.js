@@ -6,10 +6,9 @@ export class autoSave {
         this.saveButtonName = this.saveButton.innerHTML = "Save"
 
         document.getElementById("content").appendChild(this.saveButton)
-
-
     }
 }
+
 export class autoLoad {
     constructor(ID) {
         this.buttonid = ID
