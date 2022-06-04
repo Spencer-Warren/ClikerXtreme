@@ -22,7 +22,6 @@ for (const btn of upgrades) {
     document.getElementById(btn.name + " Upgrade")
         .addEventListener("click", function() {
             var item = items[btn.name]
-            console.log(item.name)
             if (item.count >= btn.price) {
                 btn.amount += 1
                 item.count -= btn.price
@@ -37,9 +36,19 @@ var idSave = 0;
 var AS = new autoSave(idSave);
 document.getElementById(idSave).addEventListener("click", save);
 
+var AL = new autoLoad(idSave);
+document.getElementById(idSave).addEventListener("click", load);
+
 function save() {
     for (const name of itemNames) {
         localStorage.setItem(name, JSON.stringify(items[name].count));
         console.log(JSON.parse(localStorage.getItem(name)));
+    }
+}
+
+function load() {
+    for (const name of itemNames) {
+        items[name].count = JSON.parse(localStorage.getItem(name));
+        console.log(name + " " + JSON.parse(localStorage.getItem(name)));
     }
 }
