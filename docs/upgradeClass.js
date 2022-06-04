@@ -35,12 +35,12 @@ export class upgradeButton {
         this.button.innerHTML = `Buy 1 ${this.name} ${this.typeOfThing} - ${this.price}  ${this.name}`;
     }
     save() {
-        localStorage.setItem(this.name, JSON.stringify(this.amount));
+        localStorage.setItem(this.typeOfThing, JSON.stringify(this.amount));
     }
     load() {
-        console.log(this.name)
-        if (localStorage.getItem(this.name) !== null) {
-            this.amount = JSON.parse(localStorage.getItem(this.name));
+        console.log(this.typeOfThing)
+        if (localStorage.getItem(this.typeOfThing) !== null) {
+            this.amount = JSON.parse(localStorage.getItem(this.typeOfThing));
             this.update();
         }
     }
