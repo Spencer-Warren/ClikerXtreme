@@ -36,8 +36,8 @@ var idSave = 0;
 var AS = new autoSave(idSave);
 document.getElementById(idSave).addEventListener("click", save);
 
-var AL = new autoLoad(idSave);
-document.getElementById(idSave).addEventListener("click", load);
+var AL = new autoLoad(2);
+document.getElementById(2).addEventListener("click", load);
 
 function save() {
     for (const name of itemNames) {
