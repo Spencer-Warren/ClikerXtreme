@@ -61,3 +61,4 @@ function load() {
 
 // Auto load on page load
 document.addEventListener("DOMContentLoaded", load);
+setInterval(save, 1000);
