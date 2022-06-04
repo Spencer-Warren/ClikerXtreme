@@ -14,7 +14,7 @@ export class Station extends BasicItem {
         this.button.innerHTML = `Buy 1 ${this.name} - ${this.price}  ${item.name}`;
 
         // init inner html
-        this.update();
+        super.update();
     }
 
     static increment(station){

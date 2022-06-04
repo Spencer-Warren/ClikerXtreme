@@ -1,7 +1,7 @@
-import { Item } from './Item.js'
-import { Station } from './Station.js'
-import { autoSave } from './save-load.js';
-import { autoLoad } from './save-load.js';
+import { Item } from './Classes/Item.js'
+import { Station } from './Classes/Station.js'
+import { autoSave } from './Classes/save-load.js';
+import { autoLoad } from './Classes/save-load.js';
 
 // init items
 var itemNames = ["Rock", "Stick", "Sand"];
@@ -66,9 +66,3 @@ setInterval(function() {
     save();
     console.log(" ~ Auto Saved ~ ");
 }, 45000);
-
-setInterval(increment, 1000);
-
-function increment() {
-
-}
