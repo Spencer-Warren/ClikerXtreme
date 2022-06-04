@@ -4,7 +4,7 @@ import { autoSave } from './save-load.js';
 import { autoLoad } from './save-load.js';
 
 // init items
-var itemNames = ['Rock', "Stick", "Sand"];
+var itemNames = ["Rock", "Stick ", "Sand"];
 var items = {};
 for (const name of itemNames) {
     items[name] = new Item(name);
@@ -16,7 +16,8 @@ var upgrades = [
         new upgradeButton("Rock", 10, "Miner", 1.2, items['Rock']),
         new upgradeButton("Stick", 10, "Gatherer", 1.5, items['Stick']),
         new upgradeButton("Sand", 10, "Shoveler", 1.7, items['Sand'])
-    ]
+]
+
     //add event listener
 for (const btn of upgrades) {
     document.getElementById(btn.name + " Upgrade")
@@ -66,3 +67,9 @@ setInterval(function() {
     save();
     console.log(" ~ Auto Saved ~ ");
 }, 45000);
+
+setInterval(increment, 1000);
+
+function increment() {
+
+}

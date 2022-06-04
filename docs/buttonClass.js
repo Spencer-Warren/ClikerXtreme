@@ -36,13 +36,8 @@ export class Item {
         return this; // allow some magic
 
     }
-    add(amount) {
-            // Increase count and update on screen
-            this.count += amount;
-            this.update()
-            return this; // allow some magic
-        }
-        // for loading saves
+
+    // for loading saves
     set(amount) {
         this.count = amount
         this.update()
@@ -56,5 +51,12 @@ export class Item {
             this.count = JSON.parse(localStorage.getItem(this.name));
             this.update();
         }
+    }
+
+    add(amount) {
+        // Increase count and update on screen
+        this.count += amount;
+        this.update();
+        return this; // allow some magic
     }
 }
