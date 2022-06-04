@@ -34,12 +34,17 @@ export class Item {
         Math.round(this.count)
         this.numDiv.innerHTML = numDisplay(this.count);
         return this; // allow some magic
-        
+
     }
     add(amount) {
-        // Increase count and update on screen
-        this.count += amount;
+            // Increase count and update on screen
+            this.count += amount;
+            this.update()
+            return this; // allow some magic
+        }
+        // for loading saves
+    set(amount) {
+        this.count = amount
         this.update()
-        return this; // allow some magic
     }
 }

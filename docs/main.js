@@ -48,7 +48,8 @@ function save() {
 
 function load() {
     for (const name of itemNames) {
-        items[name].count = JSON.parse(localStorage.getItem(name));
+        var amount = JSON.parse(localStorage.getItem(name))
+        items[name].set(amount);
         console.log(name + " " + JSON.parse(localStorage.getItem(name)));
     }
 }
