@@ -11,8 +11,8 @@ export class autoSave {
 
 export class autoLoad {
     constructor(ID) {
-        this.buttonid = ID
         this.loadButton = document.createElement("button")
+        this.loadButton.id = ID
         this.loadButtonName = this.loadButton.innerHTML = "Load"
         document.getElementById("content").appendChild(this.loadButton)
     }
