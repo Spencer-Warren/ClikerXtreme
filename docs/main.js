@@ -35,7 +35,7 @@ for (const btn of upgrades) {
 }
 var idSave = 0;
 var AS = new autoSave(idSave);
-document.getElementById(this.ID).addEventListener("click", function() {
+document.getElementById(idSave).addEventListener("click", function() {
     var storage = localStorage.setItem('ITEMS', this.items);
     console.log(storage);
 })
