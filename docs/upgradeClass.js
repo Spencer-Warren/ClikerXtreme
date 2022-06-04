@@ -8,7 +8,6 @@ export class upgradeButton {
         this.price = price;
         this.typeOfThing = typeOfThing;
         this.item = item;
-        console.log(this.item.mame);
         // init amount to 0
         this.amount = 0;
 

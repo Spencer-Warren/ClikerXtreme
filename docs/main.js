@@ -18,7 +18,7 @@ var upgrades = [
         new upgradeButton("Sand", 10, "Shoveler", 1.7, items['Sand'])
 ]
 
-    //add event listener
+//add event listener
 for (const btn of upgrades) {
     document.getElementById(btn.name + " Upgrade")
         .addEventListener("click", function() {
