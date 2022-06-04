@@ -38,7 +38,7 @@ export class upgradeButton {
         this.button.innerHTML = `Buy 1 ${this.name} ${this.typeOfThing} - ${this.price}  ${this.name}`;
     }
     increment() {
-        this.item.add(this.amount);
+        this.item += this.amount;
     }
     save() {
         localStorage.setItem(this.typeOfThing, JSON.stringify(this.amount));
