@@ -49,7 +49,7 @@ function save() {
 function load() {
     for (const name of itemNames) {
         // if item doesnt exist in local storage ignore
-        if (localStorage.getItem(name) === null) {
+        if (localStorage.getItem(name) !== null) {
             var amount = JSON.parse(localStorage.getItem(name))
             items[name].set(amount);
         }
