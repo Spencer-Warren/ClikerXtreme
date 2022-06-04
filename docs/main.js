@@ -1,28 +1,30 @@
 import { Item } from './Classes/Item.js'
 import { Station } from './Classes/Station.js'
-import { autoSave } from './Classes/save-load.js';
-import { autoLoad } from './Classes/save-load.js';
-
+import { saveIO } from './Classes/SaveIO.js'
 // init items
 var itemNames = ["Rock", "Stick", "Sand"];
-var items = {};
-for (const name of itemNames) {
-    items[name] = new Item(name);
-    document.getElementById(name + "-button").addEventListener("click", function() { items[name].add(1) });
+var items = [
+    new Item("Rock"), 
+    new Item("Stick"), 
+    new Item("Sand"),
+];
+var stations = [
+    new Station("Rock Miner", 10, 1.2, items[0]),
+    new Station("Stick Gather", 10, 1.5, items[1]),
+    new Station("Sand Shoveler", 10, 1.7, items[2])
+];
+
+var allItems = items.concat(stations);
+
+for (const item of items) {
+    document.getElementById(item.name + "-button")
+    .addEventListener("click", function() { item.add(1) });
 }
 
-// init upgrades
-var upgrades = [
-        new Station("Rock Miner", 10, 1.2, items['Rock']),
-        new Station("Stick Gather", 10, 1.5, items['Stick']),
-        new Station("Sand Shoveler", 10, 1.7, items['Sand'])
-]
-
 //add event listener
-for (const station of upgrades) {
+for (const station of stations) {
     document.getElementById(station.name+"-button")
         .addEventListener("click", function() {
-            console.log(station.item.count)
             if (station.item.count >= station.price) {
                 station.count += 1
                 station.item.count -= station.price
@@ -31,38 +33,15 @@ for (const station of upgrades) {
             }
         })
 }
-// init Saving
-var idSave = 0;
-var AS = new autoSave(idSave);
-document.getElementById(idSave).addEventListener("click", save);
-//loading
-var AL = new autoLoad(2);
-document.getElementById(2).addEventListener("click", load);
 
-//actually saving
-function save() {
-    for (const name of itemNames) {
-        items[name].save();
-    }
-    for (const up of upgrades) {
-        up.save();
-    }
-}
-//load button
-function load() {
-    for (const name of itemNames) {
-        // if item doesnt exist in local storage ignore
-        items[name].load();
-    }
-    for (const up of upgrades) {
-        up.load();
-    }
-}
+var save = new saveIO(allItems);
+document.getElementById("save").addEventListener("click", function(){save.save()});
+document.getElementById("load").addEventListener("click", function(){save.load()});
 
 // Auto load on page load
-document.addEventListener("DOMContentLoaded", load);
+document.addEventListener("DOMContentLoaded", save.load());
 // save every so often
 setInterval(function() {
-    save();
+    // save.save();
     console.log(" ~ Auto Saved ~ ");
 }, 45000);
