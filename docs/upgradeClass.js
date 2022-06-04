@@ -1,12 +1,13 @@
 import { numDisplay } from './numHelper.js'
 
 export class upgradeButton {
-    constructor(name, price, typeOfThing, mult) {
+    constructor(name, price, typeOfThing, mult, item) {
         // assign given
         this.name = name;
         this.mult = mult;
         this.price = price;
         this.typeOfThing = typeOfThing;
+        this.item = item;
         // init amount to 0
         this.amount = 0;
 
@@ -26,6 +27,8 @@ export class upgradeButton {
         document.getElementById("content").appendChild(this.button);
         // init inner html
         this.update();
+        // auto increment
+        setInterval(this.increment, 1000);
     }
 
     update() {
@@ -33,6 +36,9 @@ export class upgradeButton {
         this.div.innerHTML = `${numDisplay(this.amount)} - ${ this.name } ${ this.typeOfThing }`;
         // Set button inner html
         this.button.innerHTML = `Buy 1 ${this.name} ${this.typeOfThing} - ${this.price}  ${this.name}`;
+    }
+    increment() {
+        this.item.add(amount);
     }
     save() {
         localStorage.setItem(this.typeOfThing, JSON.stringify(this.amount));

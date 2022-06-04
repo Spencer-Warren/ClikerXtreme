@@ -13,9 +13,9 @@ for (const name of itemNames) {
 
 // init upgrades
 var upgrades = [
-        new upgradeButton("Rock", 10, "Miner", 1.2),
-        new upgradeButton("Stick", 10, "Gatherer", 1.5),
-        new upgradeButton("Sand", 10, "Shoveler", 1.7)
+        new upgradeButton("Rock", 10, "Miner", 1.2, items['Rock']),
+        new upgradeButton("Stick", 10, "Gatherer", 1.5, items['Stick']),
+        new upgradeButton("Sand", 10, "Shoveler", 1.7, items['Sand'])
     ]
     //add event listener
 for (const btn of upgrades) {
