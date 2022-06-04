@@ -1,7 +1,7 @@
-import { numDisplay } from './numHelper.js'
-import { Item } from './buttonClass.js'
-export class upgradeButton {
+import { BasicItem } from './BasicItem.js'
+export class Station extends BasicItem {
     constructor(name, price, typeOfThing, mult, item) {
+        super(name);
         // assign given
         this.name = name;
         this.mult = mult;
@@ -31,24 +31,7 @@ export class upgradeButton {
         setInterval(this.increment, 1000);
     }
 
-    update() {
-        // Set div content
-        this.div.innerHTML = `${numDisplay(this.amount)} - ${ this.name } ${ this.typeOfThing }`;
-        // Set button inner html
-        this.button.innerHTML = `Buy 1 ${this.name} ${this.typeOfThing} - ${this.price}  ${this.name}`;
-    }
     increment() {
         this.items.add(this.amount);
     }
-    save() {
-        localStorage.setItem(this.typeOfThing, JSON.stringify(this.amount));
-    }
-    load() {
-        console.log(this.typeOfThing)
-        if (localStorage.getItem(this.typeOfThing) !== null) {
-            this.amount = JSON.parse(localStorage.getItem(this.typeOfThing));
-            this.update();
-        }
-    }
-
 }

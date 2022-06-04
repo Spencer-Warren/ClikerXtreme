@@ -1,10 +1,10 @@
-import { Item } from './buttonClass.js'
-import { upgradeButton } from './upgradeClass.js'
+import { Item } from './Item.js'
+import { Station } from './Station.js'
 import { autoSave } from './save-load.js';
 import { autoLoad } from './save-load.js';
 
 // init items
-var itemNames = ["Rock", "Stick ", "Sand"];
+var itemNames = ["Rock", "Stick", "Sand"];
 var items = {};
 for (const name of itemNames) {
     items[name] = new Item(name);
@@ -13,9 +13,9 @@ for (const name of itemNames) {
 
 // init upgrades
 var upgrades = [
-        new upgradeButton("Rock", 10, "Miner", 1.2, items['Rock']),
-        new upgradeButton("Stick", 10, "Gatherer", 1.5, items['Stick']),
-        new upgradeButton("Sand", 10, "Shoveler", 1.7, items['Sand'])
+        new Station("Rock Miner", 10, "Miner", 1.2, items['Rock']),
+        new Station("Stick", 10, "Gatherer", 1.5, items['Stick']),
+        new Station("Sand", 10, "Shoveler", 1.7, items['Sand'])
 ]
 
 //add event listener
