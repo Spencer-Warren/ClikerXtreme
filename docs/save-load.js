@@ -13,7 +13,7 @@ export class autoLoad {
     constructor(ID) {
         this.buttonid = ID
         this.loadButton = document.createElement("button")
-        this.loadButtonName = this.resetButton.innerHTML = "Load"
+        this.loadButtonName = this.loadButton.innerHTML = "Load"
         document.getElementById("content").appendChild(this.resetButton)
     }
 }
