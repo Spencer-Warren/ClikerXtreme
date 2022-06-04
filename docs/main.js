@@ -43,7 +43,9 @@ document.getElementById(2).addEventListener("click", load);
 function save() {
     for (const name of itemNames) {
         items[name].save();
-        console.log(JSON.parse(localStorage.getItem(name)));
+    }
+    for (const up of upgrades) {
+        up.save();
     }
 }
 
@@ -51,6 +53,9 @@ function load() {
     for (const name of itemNames) {
         // if item doesnt exist in local storage ignore
         items[name].load();
+    }
+    for (const up of upgrades) {
+        up.load();
     }
 }
 

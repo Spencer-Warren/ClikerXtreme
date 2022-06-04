@@ -51,8 +51,10 @@ export class Item {
         localStorage.setItem(this.name, JSON.stringify(this.count));
     }
     load() {
+        console.log(this.name)
         if (localStorage.getItem(this.name) !== null) {
             this.count = JSON.parse(localStorage.getItem(this.name));
+            this.update();
         }
     }
 }
