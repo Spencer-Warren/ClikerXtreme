@@ -39,7 +39,7 @@ document.getElementById(idSave).addEventListener("click", save);
 var AL = new autoLoad(2);
 document.getElementById(2).addEventListener("click", load);
 
-
+document.getElementById(2).onload(load)
 
 function save() {
     for (const name of itemNames) {
