@@ -47,4 +47,12 @@ export class Item {
         this.count = amount
         this.update()
     }
+    save() {
+        localStorage.setItem(this.name, JSON.stringify(this.count));
+    }
+    load() {
+        if (localStorage.getItem(this.name) !== null) {
+            this.count = JSON.parse(localStorage.getItem(this.name));
+        }
+    }
 }

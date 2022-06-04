@@ -42,7 +42,7 @@ document.getElementById(2).addEventListener("click", load);
 
 function save() {
     for (const name of itemNames) {
-        localStorage.setItem(name, JSON.stringify(items[name].count));
+        items[name].save();
         console.log(JSON.parse(localStorage.getItem(name)));
     }
 }
@@ -50,11 +50,9 @@ function save() {
 function load() {
     for (const name of itemNames) {
         // if item doesnt exist in local storage ignore
-        if (localStorage.getItem(name) !== null) {
-            var amount = JSON.parse(localStorage.getItem(name))
-            items[name].set(amount);
-        }
+        items[name].load();
     }
 }
 
+// Auto load on page load
 document.addEventListener("DOMContentLoaded", load);
