@@ -62,4 +62,7 @@ function load() {
 // Auto load on page load
 document.addEventListener("DOMContentLoaded", load);
 // save every so often
-setInterval(function() { save, console.log(" ~ Auto Saved ~ ") }, 45000);
+setInterval(function() {
+    save();
+    console.log(" ~ Auto Saved ~ ");
+}, 45000);
